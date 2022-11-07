@@ -27,9 +27,9 @@ public class MineSweeper {
         while (game) {
             print(board);
             System.out.print("Row : ");
-            rrow = input.nextInt();
+            rrow = input.nextInt() - 1;
             System.out.print("Column : ");
-            rcolumn = input.nextInt();
+            rcolumn = input.nextInt() - 1;
 
             if (rrow < 0 || rrow >= rowNumber) {
                 System.out.println("Invalid coordinate !");
@@ -43,12 +43,12 @@ public class MineSweeper {
                 checkMine(rrow, rcolumn);
                 success++;
                 if (success == (size - (size / 4))) {
-                    System.out.print("Congratulations you won ! ");
+                    System.out.print("\nCongratulations you won ! \n");
                     break;
                 }
             } else {
                 game = false;
-                System.out.print("Game Over !");
+                System.out.print("\nGame Over !\n");
             }
         }
     }
@@ -70,6 +70,7 @@ public class MineSweeper {
     public void print(int[][] arr) {
         for (int[] i : arr) {
             for (int j = 0; j < arr[0].length; j++) {
+                System.out.print("|");
                 if (i[j] >= 0) {
                     System.out.print(" ");
                 }
